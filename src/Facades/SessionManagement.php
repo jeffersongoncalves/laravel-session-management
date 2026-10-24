@@ -3,14 +3,19 @@
 namespace JeffersonGoncalves\SessionManagement\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use JeffersonGoncalves\SessionManagement\SessionService;
 
 /**
- * @see \JeffersonGoncalves\SessionManagement\SessionManagement
+ * @method static int revoke(string ...$ids)
+ * @method static int revokeUser(mixed $user, ?string $exceptId = null)
+ * @method static int prune()
+ *
+ * @see SessionService
  */
 class SessionManagement extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return 'laravel-session-management';
+        return SessionService::class;
     }
 }
